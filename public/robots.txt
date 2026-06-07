@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nst-vasind.netlify.app/sitemap.xml
