@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@700;800;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-serif: "Playfair Display", serif;
+
+  --color-art-bg: #FDFCF7;
+  --color-art-black: #1A1A1A;
+  --color-art-red: #E63946;
+  --color-art-gray: #E5E5E5;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+  body {
+    @apply bg-art-bg text-art-black antialiased overflow-x-hidden selection:bg-art-red selection:text-white transition-colors duration-300;
+  }
+}
+
+@layer components {
+  .art-border {
+    @apply border border-art-black;
+  }
+
+  .art-border-thick {
+    @apply border-[12px] border-art-black;
+  }
+
+  .art-label {
+    @apply text-[9px] md:text-[10px] uppercase font-bold tracking-[0.25em] md:tracking-[0.3em] font-sans;
+  }
+
+  .art-heading-xl {
+    @apply text-[36px] sm:text-[54px] md:text-[80px] lg:text-[110px] leading-[0.9] md:leading-[0.85] font-serif font-black tracking-tighter;
+  }
+
+  .art-card {
+    @apply bg-white border border-art-black p-8 transition-all duration-300;
+  }
+
+  .art-button {
+    @apply bg-art-black text-white px-8 py-4 font-sans font-bold uppercase tracking-widest text-xs hover:bg-art-red transition-colors duration-300 cursor-pointer;
+  }
+
+  .hover-strike {
+    @apply hover:line-through transition-all;
+  }
+}

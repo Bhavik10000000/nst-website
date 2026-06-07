@@ -1,0 +1,6 @@
+{
+  "name": "NST Tutorial - Inspiring Brilliance",
+  "description": "Premium coaching institute in Vasind specializing in 5th-12th Science, NEET, JEE, and CET with a focus on individual attention and proven results.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
