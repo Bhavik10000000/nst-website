@@ -29,10 +29,9 @@ export function Contact() {
 
     setFormState("loading");
 
-    const message = `New Callback Request
-
+    const message = `Sir,
 Name: ${name}
-Phone: ${phone}
+Phone: +91 ${phone}
 Program: ${selectedProgram}
 Query: ${query}`;
 
