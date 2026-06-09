@@ -244,7 +244,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Found Something to Improve? Tell Me ↑
+                Found Something to Improve? Tell Me↑
               </a>
             </p>
           </div>
