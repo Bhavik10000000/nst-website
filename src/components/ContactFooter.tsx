@@ -13,7 +13,7 @@ import {
 import { MagneticButton } from "./ui/MagneticButton";
 import { cn } from "@/src/lib/utils";
 import { useState } from "react";
-
+import "./App.css";
 export function Contact() {
   const [formState, setFormState] = useState<"idle" | "loading" | "success">(
     "idle",
@@ -204,6 +204,7 @@ Query: ${query}`;
 }
 
 export function Footer() {
+  const message = encodeURIComponent("I have a suggestion...");
   return (
     <div className="bg-art-black text-white">
       <footer className="py-24 px-10 border-t border-white/10">
@@ -216,8 +217,37 @@ export function Footer() {
               Hyper-personalized learning frameworks for high-achieving
               profiles. Est. 2012 / Mumbai.
             </p>
+            <br />
+            <a
+              href="https://www.instagram.com/bhavik.sapat/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <div className="developer">
+                <p className="art-label opacity-40 leading-relaxed max-w-xs red">
+                  Developed by Bhavik Sapat
+                  <br />
+                  {/* <a
+                  href="https://wa.me/9028965101?text=Suggestion%20for%20NST%20Website%20 : "
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Suggestions to developer
+                </a> */}
+                </p>
+              </div>
+            </a>
+            <br />
+            <p className="art-label opacity-40 leading-relaxed max-w-xs">
+              <a
+                href="https://wa.me/9028965101?text=Suggestion%20for%20NST%20Website%20 : "
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Found Something to Improve? Tell Me ↑
+              </a>
+            </p>
           </div>
-
           <div className="grid grid-cols-2 gap-12 lg:gap-24">
             <div>
               <span className="art-label text-art-red mb-6 block">
@@ -298,18 +328,7 @@ export function Footer() {
       {/* Ticker Line from theme */}
       <div className="h-10 bg-neutral-950 flex items-center overflow-hidden whitespace-nowrap border-t border-neutral-800">
         <div className="flex gap-20 art-label text-[9px] font-bold tracking-[0.4em] px-10 animate-marquee items-center text-white/30">
-          {[...Array(5)].map((_, i) => (
-            <div key={i} className="flex gap-20 items-center">
-              <span>Personalized Excellence</span>
-              <span>*</span>
-              <span>Elite Results Only</span>
-              <span>*</span>
-              <span>NST Tuition</span>
-              <span>*</span>
-              <span>Empowerment through Knowledge</span>
-              <span>*</span>
-            </div>
-          ))}
+          <div className="flex gap-20 items-center"></div>
         </div>
       </div>
     </div>
