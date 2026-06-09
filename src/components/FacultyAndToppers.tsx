@@ -21,12 +21,8 @@ export function FacultyAndToppers({ onOpenRegistry }: FacultyAndToppersProps) {
       name: "Mr. Nikhil Shewale Sir",
       role: "Founder & Lead Director",
       experience: "10+ Years of Success",
-      bio: "An elite science and mathematics tutor who established NST Tutorials in 2012. Known for core conceptual building, customized learning schedules, and bridging the gap between potential and peak scores.",
-      specialty: [
-        " MSc in Microbiology",
-        "NEET/JEE Strategist",
-        "Admission Consulting & Career Guidance",
-      ],
+      bio: "Science & Mathematics",
+      specialty: ["MSc in Microbiology", "Concept Builder"],
       quote:
         "Don't think twice. Make the right choice at once. You won't regret choosing us.",
     },
@@ -61,7 +57,7 @@ export function FacultyAndToppers({ onOpenRegistry }: FacultyAndToppersProps) {
     {
       name: "Vaishnavi Dubhele",
       score: "82.50%",
-      detail: "1st Rank (96.80% in 10th Topper)",
+      detail: "1st Rank & 96.80% in 10th- Topper",
       subInfo: "Saraswati Vidyalaya, Vasind",
       stream: "12th Science & 10th Topper",
     },

@@ -58,7 +58,7 @@ Query: ${query}`;
             <div className="space-y-6 md:space-y-8">
               <div>
                 <span className="art-label opacity-40 block mb-2">
-                  Direct call —
+                  Contact —
                 </span>
                 <a
                   href="tel:+919130114477"
@@ -81,9 +81,7 @@ Query: ${query}`;
                 </a>
               </div>
               <div>
-                <span className="art-label opacity-40 block mb-2">
-                  Digital —
-                </span>
+                <span className="art-label opacity-40 block mb-2">Email —</span>
                 <a
                   href="mailto:info@nsttutorial.com"
                   className="text-2xl md:text-3xl font-serif italic hover-strike"
@@ -96,9 +94,8 @@ Query: ${query}`;
                   Vasind Office —
                 </span>
                 <p className="text-sm font-light leading-relaxed max-w-xs text-neutral-600">
-                  Bajaj Enterprise, First Floor,
-                  <br />
-                  Gerse Road, Vasind (W) – 421601
+                  Bajaj Enterprise, First Floor, Near New Ideal School, Gerse
+                  Road, Vasind (W) – 421601
                 </p>
               </div>
             </div>
