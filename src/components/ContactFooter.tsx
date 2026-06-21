@@ -215,7 +215,7 @@ export function Footer() {
               profiles. Est. 2012 / Mumbai.
             </p>
             <br />
-            <a
+            {/* <a
               href="https://www.instagram.com/bhavik.sapat/"
               target="_blank"
               rel="noopener noreferrer"
@@ -224,16 +224,10 @@ export function Footer() {
                 <p className="art-label opacity-40 leading-relaxed max-w-xs red">
                   Developed by Bhavik Sapat
                   <br />
-                  {/* <a
-                  href="https://wa.me/9028965101?text=Suggestion%20for%20NST%20Website%20 : "
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Suggestions to developer
-                </a> */}
+                 
                 </p>
               </div>
-            </a>
+            </a> */}
             <br />
             <p className="art-label opacity-40 leading-relaxed max-w-xs">
               <a
@@ -241,7 +235,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Found Something to Improve? Tell Me↑
+                Found Something to Improve? Tell Us↑
               </a>
             </p>
           </div>
