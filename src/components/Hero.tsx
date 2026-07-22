@@ -1,55 +1,111 @@
+import { useState, useRef, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { MagneticButton } from './ui/MagneticButton';
-import { ArrowRight, Star, Users, Award } from 'lucide-react';
+import { ArrowRight, Star, Users, Award, Volume2, VolumeX, ChevronLeft, ChevronRight } from 'lucide-react';
 import { GlassCard } from './ui/GlassCard';
 
+interface ReviewVideo {
+  src: string;
+  studentName: string;
+}
+
+const REVIEW_PLAYLIST: ReviewVideo[] = [
+  { src: '/review1.mp4', studentName: 'Sonali Das (86.17% 12th HSE)' },
+];
+
 export function Hero() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMuted, setIsMuted] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const currentVideo = REVIEW_PLAYLIST[currentIndex];
+  const hasMultipleVideos = REVIEW_PLAYLIST.length > 1;
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement || !hasMultipleVideos) return;
+
+    const handleVideoEnd = () => {
+      setCurrentIndex((prev) => (prev === REVIEW_PLAYLIST.length - 1 ? 0 : prev + 1));
+    };
+    
+    videoElement.addEventListener('ended', handleVideoEnd);
+    return () => {
+      videoElement.removeEventListener('ended', handleVideoEnd);
+    };
+  }, [currentIndex, hasMultipleVideos]);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+      videoRef.current.play().catch(() => {});
+    }
+  }, [currentIndex]);
+
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const toggleMute = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (videoRef.current) {
+      videoRef.current.muted = !videoRef.current.muted;
+      setIsMuted(videoRef.current.muted);
+    }
+  };  
+
+  const handlePrev = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === 0 ? REVIEW_PLAYLIST.length - 1 : prev - 1));
+  };
+
+  const handleNext = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    setCurrentIndex((prev) => (prev === REVIEW_PLAYLIST.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <section className="relative min-h-[85vh] md:min-h-screen flex flex-col pt-24 pb-12 md:pt-32 px-6 md:px-10 overflow-hidden bg-art-bg text-art-black">
-      {/* Branding Rails from theme */}
       <div className="absolute left-0 top-0 bottom-0 w-16 border-r border-art-black hidden lg:flex flex-col items-center py-12 justify-between">
         <span className="rotate-180 [writing-mode:vertical-lr] art-label opacity-40">Est. 2012</span>
         <div className="w-2 h-2 rounded-full bg-art-red"></div>
         <span className="[writing-mode:vertical-lr] art-label opacity-40">Vasind / Mumbai</span>
       </div>
 
-      <div className="container relative z-10 mx-auto lg:ml-24 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-4 md:mb-8"
-        >
-          <span className="art-label text-art-red mb-2 block">
-            The NST Method / 2026 Admissions
-          </span>
-          <div className="w-12 h-0.5 bg-art-black" />
-        </motion.div>
-
-        <h1 className="art-heading-xl mb-6 md:mb-12">
-          <motion.span
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.8 }}
-            className="block"
-          >
-            Paving the
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="block italic"
-          >
-            Path to <span className="text-art-red">Success</span>
-          </motion.span>
-        </h1>
-
+      <div className="container relative z-10 mx-auto lg:ml-24 max-w-6xl grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
+        
         <div className="max-w-xl">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-4 md:mb-8"
+          >
+            <span className="art-label text-art-red mb-2 block">
+              The NST Method / 2026 Admissions
+            </span>
+            <div className="w-12 h-0.5 bg-art-black" />
+          </motion.div>
+
+          <h1 className="art-heading-xl mb-6 md:mb-12">
+            <motion.span
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="block"
+            >
+              Paving the
+            </motion.span>
+            <motion.span
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.5, duration: 0.8 }}
+  className="italic xl:whitespace-nowrap"
+>
+  Path to <span className="text-art-red">Success</span>
+</motion.span>
+          </h1>
+
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -59,7 +115,6 @@ export function Hero() {
             NST Tuition is a boutique academic consultancy specializing in hyper-personalized learning frameworks for elite university admissions.
           </motion.p>
           
-
           <div className="mb-8 md:mb-12 border-t border-art-black/10 pt-4" />
 
           <div className="flex flex-col sm:flex-row items-center gap-6">
@@ -82,18 +137,58 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Artistic Floating Element */}
         <motion.div 
-          initial={{ opacity: 0, rotate: 0 }}
-          animate={{ opacity: 1, rotate: 12 }}
-          transition={{ delay: 1.8, duration: 1 }}
-          className="absolute bottom-0 right-0 w-64 h-64 border border-art-black hidden xl:flex items-center justify-center p-8 bg-white/50 backdrop-blur"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.4, duration: 1 }}
+          className="relative xl:absolute xl:top-0 xl:right-0 h-[500px] w-[400px] mx-auto xl:mx-0 border border-art-black flex flex-col justify-between overflow-hidden bg-black/5"
         >
-          <p className="art-label text-center leading-tight">
-            "The most intensive <br/> educational shift <br/> of my life."
-            <span className="block mt-4 opacity-50 italic text-[8px]">— Daniel K., 2023 Alumni</span>
-          </p>
+          <video 
+            key={currentVideo.src}
+            ref={videoRef}
+            src={currentVideo.src}
+            autoPlay 
+            loop={!hasMultipleVideos}
+            muted={isMuted}
+            playsInline 
+            className="absolute inset-0 w-full h-full object-cover opacity-100" 
+          />
+
+          <div className="w-full flex justify-end p-4 relative z-20">
+            <button 
+              onClick={toggleMute}
+              className="p-2 rounded-full border border-art-black/20 bg-white/80 hover:bg-white text-art-black transition-colors"
+              aria-label={isMuted ? "Unmute video" : "Mute video"}
+            >
+              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+            </button>
+          </div>
+
+          <div className="w-full flex flex-col relative z-10">
+            <div className="w-full h-15 bg-white/80 border-t border-art-black/10 flex flex-col items-center justify-center gap-0.5 backdrop-blur-sm">
+              <span className="art-label opacity-100 italic text-[10px]">Hear From Our Students</span>
+              <span className="art-label opacity-60 italic text-[10px]">~ {currentVideo.studentName}</span>
+            </div>
+
+            {hasMultipleVideos && (
+              <div className="w-full h-11 bg-white border-t border-art-black/20 grid grid-cols-2">
+                <button
+                  onClick={handlePrev}
+                  className="flex items-center justify-center gap-2 border-r border-art-black/10 hover:bg-art-black/5 transition-colors text-art-black text-[11px] font-medium"
+                >
+                  <ChevronLeft className="w-4 h-4" /> Prev
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="flex items-center justify-center gap-2 hover:bg-art-black/5 transition-colors text-art-black text-[11px] font-medium"
+                >
+                  Next <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
+          </div>
         </motion.div>
+
       </div>
     </section>
   );
