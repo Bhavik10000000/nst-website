@@ -141,7 +141,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.4, duration: 1 }}
-          className="relative xl:absolute xl:top-0 xl:right-0 h-[500px] w-[400px] mx-auto xl:mx-0 border border-art-black flex flex-col justify-between overflow-hidden bg-black/5"
+          className="relative xl:absolute xl:top-0 xl:right-0 h-[500px] w-auto  md:w-[400px] mx-auto xl:mx-0 border border-art-black flex flex-col justify-between overflow-hidden bg-black/5"
         >
           <video 
             key={currentVideo.src}
@@ -165,7 +165,7 @@ export function Hero() {
           </div>
 
           <div className="w-full flex flex-col relative z-10">
-            <div className="w-full h-15 bg-white/80 border-t border-art-black/10 flex flex-col items-center justify-center gap-0.5 backdrop-blur-sm">
+            <div className="w-full h-15 bg-white/80 border-t border-art-black/10 flex flex-col px-10 md:px-0 items-center justify-center gap-0.5 backdrop-blur-sm">
               <span className="art-label opacity-100 italic text-[10px]">Hear From Our Students</span>
               <span className="art-label opacity-60 italic text-[10px]">~ {currentVideo.studentName}</span>
             </div>
