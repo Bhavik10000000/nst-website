@@ -33,7 +33,7 @@ const testimonials = [
     improvement: "New Ideal School, Vasind",
   },
   {
-    text: "NST teaches how to think, not just memorize. Scoring 98 in Maths and 98 in English as state toppers gave me incredible confidence for my future.",
+    text: "NST teaches how to think, not just memorize. Scoring 98 in Maths and 98 in English as topper gave me incredible confidence for my future.",
     name: "Bhavik Sapat",
     meta: "10th Board Topper: 94.80% / English: 98 & Maths: 98",
     improvement: "Saraswati Vidyalaya, Vasind",

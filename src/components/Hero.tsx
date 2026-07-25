@@ -110,7 +110,7 @@ export function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1, duration: 1 }}
-            className="text-base md:text-2xl font-light leading-relaxed mb-6 md:mb-12 border-l-2 md:border-l-4 border-art-red pl-4 md:pl-6"
+            className="text-base md:text-2xl font-light leading-relaxed mb-6 md:mb-12 border-l-2 md:border-l-4 border-art-red pl-4 md:pl-3"
           >
             NST Tuition is a boutique academic consultancy specializing in hyper-personalized learning frameworks for elite university admissions.
           </motion.p>

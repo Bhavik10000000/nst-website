@@ -37,9 +37,104 @@ export function AcademicRegistry({
         "NEET/JEE Strategist",
         "Admission Consulting & Career Guidance",
       ],
-      quote:
-        "Don't think twice. Make the right choice at once. You won't regret choosing us.",
     },
+    {
+  name: "Mahendra Sir",
+  role: "Teacher",
+  experience: "10+ Years",
+  bio: "An experienced Mathematics teacher dedicated to strengthening concepts, improving problem-solving skills, and helping students achieve academic excellence.",
+  specialty: ["Mathematics Specialist",
+        "NEET/JEE Strategist",],
+},
+
+{
+  name: "Atul Sir",
+  role: "Teacher",
+  experience: "10 + Years",
+  bio: "A passionate Physics teacher focused on building strong conceptual understanding and developing analytical thinking among students.",
+  specialty: ["Physics Specialist",
+        "NEET/JEE Strategist",],
+},
+
+{
+  name: "Praniket Sir",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A skilled Physics educator known for simplifying complex concepts and preparing students for competitive and board examinations.",
+  specialty: ["Physics"],
+},
+
+{
+  name: "Shubham B. Sir",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A dedicated Chemistry teacher who makes learning engaging through practical examples and concept-based teaching.",
+  specialty: ["Chemistry"],
+},
+
+{
+  name: "Shivam Sir",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "An enthusiastic Chemistry teacher committed to helping students master fundamentals and score confidently in examinations.",
+  specialty: ["Chemistry"],
+},
+
+{
+  name: "J. D. Sir",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A language teacher specializing in Marathi and English, focused on improving communication, grammar, and writing skills.",
+  specialty: ["Marathi & English"],
+},
+
+{
+  name: "Ketan Sir",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "An experienced Biology teacher passionate about making life sciences easy to understand through conceptual learning.",
+  specialty: ["Biology"],
+},
+
+{
+  name: "Kirti Mam",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A dedicated Chemistry teacher who emphasizes conceptual clarity, problem-solving, and academic excellence.",
+  specialty: ["Chemistry"],
+},
+
+{
+  name: "Akshay Ambekar Sir",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A knowledgeable Physics teacher focused on developing logical thinking and strengthening students' understanding of core concepts.",
+  specialty: ["Physics"],
+},
+
+{
+  name: "Vyapvari Sir",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A Marathi teacher committed to enhancing language proficiency, grammar, and literary appreciation among students.",
+  specialty: ["Marathi"],
+},
+
+{
+  name: "Vrushali Mam",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A dedicated Hindi teacher focused on developing reading, writing, and communication skills with strong language fundamentals.",
+  specialty: ["Hindi"],
+},
+
+{
+  name: "Vrushali Suryarao",
+  role: "Teacher",
+  experience: "5+ Years",
+  bio: "A Social Science teacher passionate about making history, geography, civics, and economics engaging and easy to understand.",
+  specialty: ["Social Science"],
+},
   ];
 
   const collegeToppers = [
@@ -391,76 +486,82 @@ export function AcademicRegistry({
           <div className="flex-1 overflow-y-auto p-6 md:p-10 bg-neutral-50">
             {activeTab === "faculty" ? (
               // Faculty profile exclusive
-              <div className="max-w-4xl mx-auto space-y-12">
-                {facultyMembers.map((member, idx) => (
-                  <div
-                    key={idx}
-                    className="border border-art-black bg-white p-6 md:p-10 hover:shadow-lg transition-shadow"
-                  >
-                    <div className="flex flex-col md:flex-row justify-between items-start gap-6 border-b border-neutral-100 pb-6 mb-6">
-                      <div>
-                        <span className="px-2 py-0.5 bg-art-red text-white text-[8px] art-label font-bold mb-3 inline-block">
-                          ACADEMIC FOUNDER
-                        </span>
-                        <h3 className="text-3xl md:text-4xl font-serif italic text-art-black">
-                          {member.name}
-                        </h3>
-                        <p className="art-label text-art-red text-xs mt-1">
-                          {member.role} — {member.experience}
-                        </p>
-                      </div>
-                      <div className="text-right">
-                        <span className="art-label opacity-40 text-[9px]">
-                          CLASSES TAUGHT
-                        </span>
-                        <p className="text-sm font-sans font-medium text-neutral-800">
-                          5th to 10th &amp; 11th - 12th Science / Board Prep
-                        </p>
-                      </div>
-                    </div>
+              <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
+  {facultyMembers.map((member, idx) => {
+    const isFounder = idx === 0;
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-                      <div>
-                        <h4 className="art-label text-[9px] opacity-40 mb-3">
-                          PROFESSIONAL SPECIALIZATION
-                        </h4>
-                        <div className="space-y-2 mb-6">
-                          {member.specialty.map((spec, sIdx) => (
-                            <div key={sIdx} className="flex items-center gap-2">
-                              <CheckCircle2 className="w-4 h-4 text-art-red shrink-0" />
-                              <span className="text-xs text-neutral-800 font-sans font-medium">
-                                {spec}
-                              </span>
-                            </div>
-                          ))}
-                        </div>
+    return (
+      <div
+        key={idx}
+        className="bg-white border border-art-black hover:shadow-xl transition-all duration-300 flex flex-col"
+      >
+        {/* Header */}
+        <div className="p-8 border-b border-neutral-200">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <span
+                className={`px-3 py-1 text-[9px] art-label font-bold text-white ${
+                  isFounder ? "bg-art-red" : "bg-art-black"
+                }`}
+              >
+                {isFounder ? "FOUNDER & DIRECTOR" : "FACULTY MEMBER"}
+              </span>
 
-                        <p className="text-xs md:text-sm text-neutral-600 leading-relaxed font-light font-sans mb-4">
-                          {member.bio}
-                        </p>
-                      </div>
+              <h3 className="mt-5 text-3xl font-serif italic text-art-black">
+                {member.name}
+              </h3>
 
-                      <div className="border-l border-neutral-200 pl-0 md:pl-8 pt-6 md:pt-0 flex flex-col justify-between h-full">
-                        <div>
-                          <span className="art-label text-[9px] opacity-40 mb-3 block">
-                            DIRECTOR'S STATEMENT
-                          </span>
-                          <blockquote className="text-base font-serif italic text-art-red font-medium leading-relaxed">
-                            "{member.quote}"
-                          </blockquote>
-                        </div>
+              <p className="mt-2 text-xs art-label text-art-red tracking-widest">
+                {member.role} • {member.experience}
+              </p>
+            </div>
 
-                        <div className="mt-8 pt-6 border-t border-neutral-100 flex items-center gap-2">
-                          <Star className="w-4 h-4 text-art-red" />
-                          <span className="art-label text-[8px] text-neutral-400">
-                            Where Knowledge Meets Confidence!
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
+            {/* <div className="text-right">
+              <p className="text-[9px] art-label text-neutral-400 tracking-[0.25em]">
+                SUBJECT
+              </p>
+
+              <p className="text-sm font-semibold text-art-black">
+                {member.specialty[0]}
+              </p>
+            </div> */}
+          </div>
+        </div>
+
+        {/* Body */}
+        <div className="p-8 flex-1 flex flex-col">
+          <span className="text-[10px] art-label tracking-[0.25em] text-neutral-400 mb-4">
+            ABOUT
+          </span>
+
+          <p className="text-sm text-neutral-600 leading-7">
+            {member.bio}
+          </p>
+
+          <div className="mt-8">
+            <span className="text-[10px] art-label tracking-[0.25em] text-neutral-400">
+              SPECIALIZATION
+            </span>
+
+            <div className="mt-3 flex flex-wrap gap-2">
+              {member.specialty.map((item, i) => (
+                <span
+                  key={i}
+                  className="flex items-center gap-2 px-3 py-2 border border-neutral-200 bg-neutral-50 text-xs font-medium"
+                >
+                  <CheckCircle2 className="w-4 h-4 text-art-red" />
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
+
+         
+        </div>
+      </div>
+    );
+  })}
+</div>
             ) : (
               // Student roster layout
               <div>
